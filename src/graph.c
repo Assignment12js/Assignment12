@@ -2,16 +2,16 @@
 #include "graph.h"
 #include <assert.h>
 
-struct graph
+struct graph //encapsulated
 {
-    size_t n;
-    size_t m;
+    size_t n; //number of vertices
+    size_t m; //number of edges
     bool directed;
-    vertex_t** adj_list;
-    size_t* degree;
+    vertex_t** adj_list; //the list of neighbors
+    size_t* degree; //degree of a specific vertex
 };
 
-graph* graph_create(size_t n, bool directed)
+graph* graph_create(size_t n, bool directed) //creates a graph with only vertices
 {
     graph* new_graph = malloc(sizeof(graph));
 

@@ -18,7 +18,7 @@ graph_add_edge(newGraph, vs[j], i);
 return newGraph;
 }
 
-void graph_bfs(graph* G, vertex_t start, vertex_t* parent) {
+void graph_bfs(graph* G, vertex_t start, vertex_t* parent) { //stores an array of parent indices
 size_t n = graph_vertex_count(G);
 bool marked[n];
 for (size_t i = 0; i < n; i++) {
@@ -45,7 +45,7 @@ graph_neighbors (G, current , neighbors);
 for (size_t i = 0; i < current_deg; i++){
   if (!marked[neighbors[i]]) {
 marked[neighbors[i]] = true;
-parent[neighbors [ i ]] = current;
+parent[neighbors [ i ]] = current; //the array of parent indices
 queue_add_last(Q, neighbors[i]);
 }
 }

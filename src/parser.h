@@ -49,7 +49,7 @@ typedef struct trip_record
 {
     vertex_t start;
     vertex_t end;
-    char type;
+    char type; //either D for distance or T for time
 } trip_record;
 
 /**

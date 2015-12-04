@@ -1,3 +1,4 @@
+// Implementations of the function declarations in graph.h.
 #include "graph.h"
 #include <assert.h>
 
@@ -147,19 +148,20 @@ graph* graph_remove_edge(graph* self, vertex_t u, vertex_t v)
     return self;
 }
 
-void graph_write(graph* self, FILE* stream)
-{
-    fprintf(stream, "n = %zu\n", self->n);
-    fprintf(stream, "m = %zu\n", self->m);
-    fprintf(stream, "directed = %s\n\n", self->directed ? "true" : "false");
-
-    for (size_t i = 0; i < self->n; i++)
-    {
-        fprintf(stream, "%zu : ", i);
-        for (size_t j = 0; j < self->degree[i]; j++)
-        {
-            fprintf(stream, "%zu ", self->adj_list[i][j]);
-        }
-        fprintf(stream, "[%zu]\n", self->degree[i]);
-    }
-}
+// Note: The following method was used for testing, but is not part of the API.
+// void graph_write(graph* self, FILE* stream)
+// {
+//     fprintf(stream, "n = %zu\n", self->n);
+//     fprintf(stream, "m = %zu\n", self->m);
+//     fprintf(stream, "directed = %s\n\n", self->directed ? "true" : "false");
+//
+//     for (size_t i = 0; i < self->n; i++)
+//     {
+//         fprintf(stream, "%zu : ", i);
+//         for (size_t j = 0; j < self->degree[i]; j++)
+//         {
+//             fprintf(stream, "%zu ", self->adj_list[i][j]);
+//         }
+//         fprintf(stream, "[%zu]\n", self->degree[i]);
+//     }
+// }

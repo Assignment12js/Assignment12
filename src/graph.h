@@ -1,3 +1,10 @@
+/**
+ * This header provides the functions for working with our graph ADT.
+ * Run time are provided in the comments of the functions
+ *
+ * @author Michael J. Bannister
+ * @date 3 Dec 2015
+ */
 #ifndef __GRAPH_H__
 #define __GRAPH_H__
 
@@ -5,7 +12,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-// Typedef to make finction signatures clearer.
+// Typedef to make function signatures clearer.
 typedef unsigned long vertex_t;
 // Forward declaration of the graph type.
 typedef struct graph graph;

@@ -1,3 +1,7 @@
+/**
+ * This file provides a queue based on a double linked list. This is the same
+ * queue we used in lab.
+ */
 #ifndef __QUEUE_H__
 #define __QUEUE_H__
 

@@ -11,7 +11,7 @@ firstname = FIRSTNAME
 #
 # Make sure the project name below is correct:
 #
-project_name = Lab12
+project_name = Assignment12
 #
 # If you are working from home, enter the location of your copy of clang below:
 #

@@ -24,16 +24,30 @@ graph* buildGraph(){
  graph* newGraph = graph_create(i, true);
 
  for(size_t i=0; i < readFile().road_count; i++){
-graph_add_edge(readFile(), vertex_t u, vertex_t v)
+graph_add_edge(newGraph, readFile().roads[i].start, readFile().roads[i].end);
  }
+
+return newGraph;
+}
+
+bool isStronglyConnected(graph* g){
+  bool isStrong;
+  size_t n = graph_vertex_count(g);
+  for(size_t i =0; i < n; i++){
+    vertex_t neighbors[n];
+    graph_neighbors(g, i, neighbors);
+  size_t deg;
+   graph_degree(g, i, &deg);
+    for(size_t j=0; j < deg; j++){
+
+    }
+  }
 }
 
 int main(){
-// file_record obj =readFile();
-// for (size_t i = 0; i < obj.location_count; i++)
-//  {
-//      printf("    %zu: %s %lu\n", i, obj.locations[i].name, obj.locations[i].id);
-//  }
+ //file_record fr =readFile();
+//graph* obj = buildGraph();
+
   return EXIT_SUCCESS;
 
 }

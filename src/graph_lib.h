@@ -24,6 +24,6 @@ graph* graph_edge_reversal(graph* G);
  * @param start  vertex to start the search with
  * @param parent[out] the output array of parents
  */
-void graph_bfs(graph* G, vertex_t start, vertex_t* parent);
+bool graph_bfs(graph* G, vertex_t start, vertex_t* parent);
 
 #endif//__GRAPH_LIB_H__

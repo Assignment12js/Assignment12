@@ -3,16 +3,18 @@
 #include <stdbool.h>
 #include "parser.h"
 #include "graph.h"
+#include "graph_lib.h"
+
 
 /**
 * @brief reads a file, and creates a file_record
 * @return a file_record
 */
 file_record readFile(){
-FILE* file = fopen("data/sample.txt", "r");
-file_record fr = parse_file(file);
-fclose(file);
-return fr;
+  FILE* file = fopen("data/Ok.txt", "r");
+  file_record fr = parse_file(file);
+  fclose(file);
+  return fr;
 }
 
 /**
@@ -21,32 +23,38 @@ return fr;
 */
 graph* buildGraph(){
   int i = readFile().location_count;
- graph* newGraph = graph_create(i, true);
+  graph* newGraph = graph_create(i, true);
 
- for(size_t i=0; i < readFile().road_count; i++){
-graph_add_edge(newGraph, readFile().roads[i].start, readFile().roads[i].end);
- }
+  for(size_t i=0; i < readFile().road_count; i++){
+    graph_add_edge(newGraph, readFile().roads[i].start, readFile().roads[i].end);
+  }
 
-return newGraph;
+  return newGraph;
 }
 
 bool isStronglyConnected(graph* g){
   bool isStrong;
-  size_t n = graph_vertex_count(g);
-  for(size_t i =0; i < n; i++){
-    vertex_t neighbors[n];
-    graph_neighbors(g, i, neighbors);
-  size_t deg;
-   graph_degree(g, i, &deg);
-    for(size_t j=0; j < deg; j++){
-
+  size_t size = graph_vertex_count(g);
+  vertex_t parent[size];
+  isStrong = graph_bfs(g, 0, parent);
+  if(!isStrong){
+    return false;
+  }
+  else{
+    graph* reverse = graph_edge_reversal(g);
+    isStrong = graph_bfs(reverse, 0, parent);
+    if(!isStrong){
+      return false;
+    }
+    else{
+      return true;
     }
   }
 }
 
 int main(){
- //file_record fr =readFile();
-//graph* obj = buildGraph();
+  //file_record fr =readFile();
+  //graph* obj = buildGraph();
 
   return EXIT_SUCCESS;
 

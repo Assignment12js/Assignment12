@@ -1,3 +1,5 @@
+#include <stdbool.h>
+#include <string.h>
 #include "graph_lib.h"
 #include "queue.h"
 
@@ -18,7 +20,7 @@ graph_add_edge(newGraph, vs[j], i);
 return newGraph;
 }
 
-void graph_bfs(graph* G, vertex_t start, vertex_t* parent) { //stores an array of parent indices
+bool graph_bfs(graph* G, vertex_t start, vertex_t* parent) { //stores an array of parent indices
 size_t n = graph_vertex_count(G);
 bool marked[n];
 for (size_t i = 0; i < n; i++) {
@@ -28,6 +30,7 @@ marked[i] = false;
 marked[start]=true;
 queue* Q = queue_create();
 queue_add_last(Q, start);
+
 
 while (!queue_empty(Q)) {
 vertex_t current;
@@ -41,7 +44,6 @@ vertex_t neighbors[n];
 graph_neighbors (G, current , neighbors);
 
 
-
 for (size_t i = 0; i < current_deg; i++){
   if (!marked[neighbors[i]]) {
 marked[neighbors[i]] = true;
@@ -50,4 +52,10 @@ queue_add_last(Q, neighbors[i]);
 }
 }
 }
+for(size_t i=0; i <n; i++){
+  if(marked[i] == false){
+    return false;
+  }
+}
+return true;
 }

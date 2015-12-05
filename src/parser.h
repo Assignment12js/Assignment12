@@ -23,8 +23,8 @@ typedef unsigned long vertex_t;
  */
 typedef struct location_record
 {
-    vertex_t id;
-    char* name;
+    vertex_t id; //id of a specific location
+    char* name; //name of a specific location
 } location_record;
 
 /**
@@ -33,10 +33,10 @@ typedef struct location_record
  */
 typedef struct road_record
 {
-    vertex_t start;
-    vertex_t end;
-    double distance;
-    double speed;
+    vertex_t start; //the vertex number where the segment begins
+    vertex_t end; //the vertex number where the segment ends
+    double distance; //the distance covered by the segment in miles
+    double speed; //the current speed of traffic on the segment in miles per hour
 } road_record;
 
 /**
@@ -47,9 +47,10 @@ typedef struct road_record
  */
 typedef struct trip_record
 {
-    vertex_t start;
-    vertex_t end;
-    char type; //either D for distance or T for time
+    vertex_t start; //the starting location for the trip
+    vertex_t end; //the ending location for the trip
+    char type; //D if the program should determine the shortest distance, or T if the program should
+    //determine the shortest driving time
 } trip_record;
 
 /**
@@ -58,7 +59,7 @@ typedef struct trip_record
  */
 typedef struct file_record
 {
-    size_t location_count;
+    size_t location_count; //number of locations
     location_record* locations; // Array of locations
     size_t road_count;
     road_record* roads; // Array of roads

@@ -51,6 +51,20 @@ bool isStronglyConnected(graph* g){
     }
   }
 }
+void Dijkstra(graph *graph) {
+  size_t v=graph_vertex_count(graph);
+  vertext_t s=0;
+  unsigned long n=v;
+  double length[n][n];
+  double dist[n];
+  vertext_t parent[n];
+  pqueue Q;
+  dist[s]=0;
+  for (int i=1; i<v; i++) {
+dist[i]=-1;
+
+  }
+}
 
 int main(){
   //file_record fr =readFile();

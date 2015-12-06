@@ -53,17 +53,21 @@ bool isStronglyConnected(graph* g){
   }
 }
 void Dijkstra(graph* g) {
-  vertex_t start =readFile().trips[0].start;
-  size_t n=graph_vertex_count(g);
-  double length[n][n];
-  double dist[n];
-  vertex_t parent[n];
-  dist[start]=0;
-  pqueue pq;
-  pqueue_init(&pq);
-  for (size_t i=1; i<n; i++) {
-dist[i]=-1;
+  vertex_t start =readFile().trips[0].start; //start of the trip
+  size_t n=graph_vertex_count(g); //number of vertices in the graph
+  double length[n][n]; //distance of a road in miles
+  double dist[n]; // current best distance
+  vertex_t parent[n]; //array of parent pointers
+  dist[start]=0; //start distance
+  pqueue pq; //priority queue
+  pqueue_init(&pq); //initialization of the priority queue
+  pqueue_push(&pq, start, 0); //push the start into pqueue
+  for (size_t i=1; i<n; i++) { //set all the distances to a default value
+dist[i]=99999999;
   }
+while(!pqueue_empty(&pq)){ //while the pqueue is not empty
+
+}
 }
 
 int main(){

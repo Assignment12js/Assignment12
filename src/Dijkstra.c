@@ -12,7 +12,7 @@
 * @return a file_record
 */
 file_record readFile(){
-  FILE* file = fopen("data/Ok.txt", "r");
+  FILE* file = fopen("data/sample.txt", "r");
   file_record fr = parse_file(file);
   fclose(file);
   return fr;
@@ -52,28 +52,24 @@ bool isStronglyConnected(graph* g){
     }
   }
 }
-void Dijkstra(graph *graph) {
-  unsigned long start =readFile().trips[0].start;
-  size_t v=graph_vertex_count(graph);
-  vertex_t s=start;
-  unsigned long n=v;
+void Dijkstra(graph* g) {
+  vertex_t start =readFile().trips[0].start;
+  size_t n=graph_vertex_count(g);
   double length[n][n];
   double dist[n];
   vertex_t parent[n];
-  pqueue* Q;
-  dist[s]=0;
-  pqueue_push(Q, s, 0);
-  for (int i=1; i<v; i++) {
+  dist[start]=0;
+  pqueue pq;
+  pqueue_init(&pq);
+  for (size_t i=1; i<n; i++) {
 dist[i]=-1;
-  }
-  for (int j=0; j<v; j++) {
-
   }
 }
 
 int main(){
-  //file_record fr =readFile();
-  //graph* obj = buildGraph();
+  file_record fr =readFile();
+  graph* obj = buildGraph();
+  Dijkstra(obj);
 
   return EXIT_SUCCESS;
 

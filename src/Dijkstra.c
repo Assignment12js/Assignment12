@@ -4,6 +4,7 @@
 #include "parser.h"
 #include "graph.h"
 #include "graph_lib.h"
+#include "pqueue.h"
 
 
 /**
@@ -52,16 +53,20 @@ bool isStronglyConnected(graph* g){
   }
 }
 void Dijkstra(graph *graph) {
+  unsigned long start =readFile().trips[0].start;
   size_t v=graph_vertex_count(graph);
-  vertext_t s=0;
+  vertex_t s=start;
   unsigned long n=v;
   double length[n][n];
   double dist[n];
-  vertext_t parent[n];
-  pqueue Q;
+  vertex_t parent[n];
+  pqueue* Q;
   dist[s]=0;
+  pqueue_push(Q, s, 0);
   for (int i=1; i<v; i++) {
 dist[i]=-1;
+  }
+  for (int j=0; j<v; j++) {
 
   }
 }

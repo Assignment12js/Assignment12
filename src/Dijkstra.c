@@ -85,12 +85,16 @@ length[readFile().roads[i].start][readFile().roads[i].end]=readFile().roads[i].d
   vertex_t neighbors[n];
   vertex_t vkey;
   double d=dist[0];
-  for (size_t i=1; i<n; i++) { //set all the distances to a default value
+  for (size_t i=start-1; i>-1; i--) { //set all the distances to a default value
+dist[i]=99999999;
+  }
+  for(size_t i= start+1 ;i<n ;i++){
 dist[i]=99999999;
   }
 
 while(!pqueue_empty(&pq)){ //while the pqueue is not empty
 pqueue_top(&pq, &vkey, &priority);
+//printf("%zu\n", vkey);
 d=dist[vkey];
 graph_neighbors(g, vkey, neighbors);
 cur=vkey;
@@ -101,17 +105,21 @@ if (d<=dist[cur]) {
   dist[neighbors[i]]=dist[cur] + length[cur][neighbors[i]];
   parent[neighbors[i]]=cur;
   pqueue_push(&pq,neighbors[i], dist[neighbors[i]]);
+  //printf("%zu\n", pqueue_size(&pq));
+  //printf("neighbors%zu\n", neighbors[i]);
     }
-    else {
-      pqueue_pop(&pq);
-    }
-    if (neighbors[i]==readFile().location_count-1) {
-      pqueue_pop(&pq);
-    }
+    // else {
+    //   pqueue_pop(&pq);
+    // }
+    // if (neighbors[i]==readFile().trips[index].end) {
+    //   printf("IN HERE\n");
+    //   pqueue_pop(&pq);
+    // }
   }
+  pqueue_pop(&pq);
 }
 }
-printf("%s\n", readFile().locations[14].name);
+printf("%f\n", dist[8]);
 if(type == 'D'){
 
 }
@@ -120,8 +128,8 @@ if(type == 'D'){
 int main(){
   file_record fr =readFile();
   graph* obj = buildGraph();
-  int v = 0;
-  char ok = 'D';
+  int v = 1;
+  char ok = 'T';
   Dijkstra(obj, v, ok);
 
 

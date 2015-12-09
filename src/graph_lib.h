@@ -1,3 +1,9 @@
+/**
+* This header provides the functions for finding the shortest path of a graph.
+* @author Sam Gearou
+* @author Josh Gearou
+* @date 8 Dec 2015
+*/
 #ifndef __GRAPH_LIB_H__
 #define __GRAPH_LIB_H__
 

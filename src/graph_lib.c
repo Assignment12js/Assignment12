@@ -1,3 +1,9 @@
+/**
+* @author Sam Gearou
+* @author Josh Gearou
+* @date 8 Dec 2015
+*/
+
 #include <stdbool.h>
 #include <string.h>
 #include "graph_lib.h"
@@ -5,7 +11,7 @@
 
 graph* graph_edge_reversal(graph* G) {
 size_t n = graph_vertex_count(G);
-graph* newGraph = graph_create(n, true);
+graph* newGraph = graph_create(n, true); //the new graph.
 
 for(size_t i=0;i< n;i++){
 vertex_t vs[n];
@@ -14,13 +20,13 @@ vertex_t vs[n];
   graph_degree(G, i, &f);
 
   for(size_t j = 0; j<f; j++){
-graph_add_edge(newGraph, vs[j], i);
+graph_add_edge(newGraph, vs[j], i);  //adds the reversed edges to the new graph
   }
 }
 return newGraph;
 }
 
-bool graph_bfs(graph* G, vertex_t start, vertex_t* parent) { //stores an array of parent indices
+bool graph_bfs(graph* G, vertex_t start, vertex_t* parent) { //stores an array of parent indices.
 size_t n = graph_vertex_count(G);
 bool marked[n];
 for (size_t i = 0; i < n; i++) {
@@ -46,8 +52,8 @@ graph_neighbors (G, current , neighbors);
 
 for (size_t i = 0; i < current_deg; i++){
   if (!marked[neighbors[i]]) {
-marked[neighbors[i]] = true;
-parent[neighbors [ i ]] = current; //the array of parent indices
+marked[neighbors[i]] = true; //marks all unmarked vertices.
+parent[neighbors [ i ]] = current; //the array of parent indices.
 queue_add_last(Q, neighbors[i]);
 }
 }

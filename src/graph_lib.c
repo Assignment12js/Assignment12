@@ -34,12 +34,12 @@ queue_add_last(Q, start);
 
 while (!queue_empty(Q)) {
 vertex_t current;
-queue_get_first (Q, &current );
+queue_get_first (Q, &current);
 queue_remove_first(Q);
 
 
 size_t current_deg;
-graph_degree (G, current, &current_deg );
+graph_degree (G, current, &current_deg);
 vertex_t neighbors[n];
 graph_neighbors (G, current , neighbors);
 

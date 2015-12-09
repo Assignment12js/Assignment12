@@ -1,8 +1,17 @@
-#include <stdlib.h>
-#include <stdio.h>
-#include <stdbool.h>
-#include "parser.h"
+#include "Dijkstra.c"
 
+int main(){
+  graph* obj = buildGraph();
+  for(size_t i=0; i < readFile().trip_count; i++){
+    printf("\n");
+  int v = (int) i;
+  char ok = readFile().trips[i].type;
+  Dijkstra(obj, v, ok);
+}
+printf("\n");
+  return EXIT_SUCCESS;
+
+}
 // Here is an example of how you will be working with the output of the parser.
 //int main()
 //{

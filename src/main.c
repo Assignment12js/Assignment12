@@ -1,3 +1,11 @@
+/**
+* Reads in a file and finds the shortest path from one vertex to all the other vertices
+* in order to process trips based on the shortest time or the shortest distance
+* @author Sam Gearou
+* @author Josh Gearou
+* @date 8 Dec 2015
+*/
+
 #include "Dijkstra.h"
 
 int main(){

@@ -1,4 +1,4 @@
-#include "Dijkstra.c"
+#include "Dijkstra.h"
 
 int main(){
   graph* obj = buildGraph();

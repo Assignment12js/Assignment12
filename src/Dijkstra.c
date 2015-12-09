@@ -1,12 +1,4 @@
-#include <stdlib.h>
-#include <stdio.h>
-#include <stdbool.h>
-#include "parser.h"
-#include "graph.h"
-#include "graph_lib.h"
-#include "pqueue.h"
-#include <string.h>
-#include <math.h>
+#include "Dijkstra.h"
 
 
 /**
